@@ -38,9 +38,9 @@ while True:
     if choice == 1:     # 커피
         print("●● 커피(Coffee)")
         show_menu(coffee_name)
-        # 4. 서브 메뉴 선택
+        # 4.서브 메뉴 선택
         choice = user_choice(len(coffee_name))
-    # 5. 선택 메뉴 주문 목록 저장
+        # 5.선택 메뉴 주문 목록 저장
         menu_save.append(coffee_name[choice])
         price_save.append(coffee_price[choice])
     elif choice == 2:   # 음료
@@ -59,9 +59,9 @@ while True:
         print("MSG: 조선별다방 키오스크를 종료합니다.")
         exit()
 
-    # 6. 추가 주문 yes pr no?
-    print("●○ 추가 주문하시겠습니가?(y/n)")
-    flag = 0 # 추가 주문 y/n 여부
+    # 6.추가 주문 yes or no?
+    print("●○ 추가 주문하시겠습니까?(y/n)")
+    flag = 0  # 추가 주문 y/n 여부
     while True:
         choice_yn = input("y/n: ")
         if choice_yn == "y" or choice_yn == "Y":
@@ -71,17 +71,17 @@ while True:
             break
         else:
             print("MSG: y 또는 n만 입력하세요.")
-    # 7. 주문내역 출력
+
+    # 7.주문내역 출력!
     if flag == 1:
         print("="*50)
         print("== 고객님이 주문하신 메뉴 ==")
-        for menu in enumerate(menu_save):
-            print(f"== {i+1}.{menu}")
+        for i, menu in enumerate(menu_save):
+            print(f"==   {i+1}.{menu}")
 
-    total_price = 0 #총 결제금액
-    for price in price_save:
-        total_price += price
+        total_price = 0  # 총 결제금액
+        for price in price_save:
+            total_price += price
 
-    print(f"MSG: 주문하신 메뉴는 {len(menu_save)}개로 총 결제금액은 {total_price}원 입니다.")
-    print("MSG: 이용해주셔서 감사합니다.")
-
+        print(f"== 주문하신 메뉴는 {len(menu_save)}개로 총 결제금액은 {total_price}원 입니다.")
+        print("MSG: 이용해주셔서 감사합니다.")
